@@ -1,20 +1,30 @@
-'use strict';
-// let number = 26;
-// // (number === 25) ? console.log('correct!'): console.log('wrong!');
-// switch (number) {
-//     case 30:
-//         console.log('too much!');
-//         break;
-//     case 15:
-//         console.log('not enough');
-//         break;
-//     case 25:
-//         console.log('got it!');
-//         break;
-//     default:
-//         console.log('next time stranger!');
-// }
+"use strict";
+let numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
 
-for (let i = 1; i < 0; i++) {
+let personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    private: false
+};
+
+for (let i = 0; i < 2; i++) {
+    let a = prompt('Одни из последних просмотренных фильмов?'),
+        b = prompt('На сколько оцените его?');
+    if (a != null && b != null && a != '' && b != '' && a.lenght < 50 && b.length < 50) {
+        personalMovieDB.movies[a] = b;
+    } else {
+        i--;
+    }
+}
+
+if (personalMovieDB.count < 10) {
+    console.log('Просмотрено мало фильмов');
+} else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+    console.log('Вы - классический зритель.');
+} else if (personalMovieDB.count > 30) {
+    console.log('Вы - киноман.');
+} else {
     console.log('error');
 }
